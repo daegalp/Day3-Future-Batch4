@@ -1,0 +1,40 @@
+------------
+    JAVA
+------------
+
+- JVM, JRE, JDK : Virtual Machine, Runtime Environtment, Development Kit
+		  JDK -> JRE (Libs dan JVM), urutan paling dalam JVM -> JRE -> JDK
+- Type Data : a. Primitive & pasangan wrapper : (int, float, long, dll.)(Integer, Float, Long, dll) 
+		-> perbedaan mendasar kalau primitive pasti ada isinya, sedangkan wrapper 
+		   nilainya adalah NULL
+	      b. Wrapper : (String, Date, Timestamp, BigDecimal)
+	      c. Object Reference : - Reference by value : Human dae = new Human();
+				    - Reference by object : Human ega = dae;
+- Abstraction : a. Interface -> Apa yang akan dilakukan
+		b. Abstraksi -> APa saja yang sama diantara subclass nantinya
+
+- @Autowired : controller -(injek)-> service (dibuat singleton) -> repository -> entity
+
+- RequestParam : product/id?=1 -> ?=1 request param
+
+- @Table(name = "Nama Tabel Kamu") -> secara default sesuai nama class
+
+- @Column(unique = true)
+
+- Penjelasan :	a. Entity -> Representasi dari database
+		b. Model -> untuk output (karena tidak semua data dalam db ditunjukkan)
+		c. Repository -> untuk SELECT * dll, komunikasi dengan database
+		d. Service -> untuk request, response. Menjalankan repo untuk mendapatkan model
+
+CTRL + SHIFT + A : shortcut ajaib
+IOC : inversion of controller
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+SpringBoot thymeleaf
+
+
+Kesimpulan :
+
+1. Dependency yg dibutuhkan apa saja, cantumkan kedalam pom
+2. Src -> main -> Resource : untuk properties yg dibutuhkan
+3. Src -> main -> java : Bikin 1 main class dengan @SpringBootApplication
+4. Alur singkat : controller -(injek)-> service (dibuat singleton) -> repository -> entity -> response
