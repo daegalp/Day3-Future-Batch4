@@ -1,0 +1,87 @@
+Day 1 :
+
+--------
+  GIT
+--------
+
+- Git benefits = a. Distributed : bisa di copy semua dan punya sistemnya di laptop sendiri
+		 b. Easy merge : ingin menambahin fitur atau memperbaiki bug
+		 c. Tag : Bisa dikasih versi sendiri (labeling)
+
+- Git behaviour = a. Clone whole repository
+		  b. Everything* is done locally, commit often (hanya push -> merubah server)
+		  c. History
+
+-Git day to day usage = a. Auth using SSH
+			b. Clone
+			c. Stage (git status, bisa liat mana aja file yg diganti)
+				 (git add, untuk nambah ke server nanti -> berada di stage)
+			d. Commit (git commit -> ini masih baru di local sans aja)
+				  (waktu commit -> line 1 judul, line 2 kosong, selanjutnya bebas)
+			e. Push (server berubah)
+			f. Fork (join)
+			g. Pull request -> mengirim perubahan ke yg punya asli
+			h. Branch (git checkout -b "nama branch") -> checkout pindah branch
+			i. Merge (git merge "nama branch") -> git diff "nama branch"
+				 (git merge --no-ff "nama branch" -> seolah ini emang merge)
+				 (terus bikin pull request -> di merge branchnya)
+			j. Log (git log) atau (git log --graph --decorate --oneline --color --all)
+				(warna merah -> branch di master, warna ijo -> branch di local)
+				(tanda bintang artinya commit)
+				(cara baca isi branch, yg berada di bawah bintang branch itu
+				 berarti isi dari branch tersebut)
+				(git fetch -> ambil data dari server tapi yg lokal gk berubah)
+
+- Git Flow = a. Master
+	     b. Release/*
+	     c. Feature/*
+	     d. Hotfix/*
+	     e. Bug/*
+
+----------------
+     MAVEN
+----------------
+
+- Minimal POM : a. <project>
+		b. <modelVersion> ==> selalu 4.0.0
+		c. <groupId> ==> nama projek nanti
+		d. <artifactId> ==> nama untuk di jar nanti
+		e. <version>
+
+- Aggregation : semua command juga diikuti oleh child nantinya (ditambah <modules>)
+
+- Dependency Mechanism : a. Transitive Dependencies
+				A->B->C : B butuh C, jadi A = butuh B dan C
+				Kalau ada 2 library yg sama, maka akan dipilih yg versi besar
+				dependencyManagement untuk mengatur versi (bisa milih versi dewe)
+			 b. Excluded/Optional Dependencies
+				- Mengatur kepemilikan transitive depend, jadi bisa mengatur mana
+				saja yang ingin di transitive dan tidak (<exclusion>) --> A->B->C
+				A bisa saja menghilangkan C
+				- Optional : C bisa saja menghilangkan dirinya sendiri, tanpa harus
+				disuruh oleh A (owner dia sendiri) -> <optional>true</optional>
+			c. Dependency Scope
+				- Compile
+				- Provided -> waktu ngompile aja penggunaan dependency
+				- Runtime -> waktu run time aja
+				- Test -> waktu test aja
+				- System
+				- Import
+				<scope> runtime </scope> --> contoh
+			d. Dependency Management
+				Untuk mengatur versi yang diinginkan, sebaiknya digunakan di parent
+				Tidak perlu menentukan version lagi jika udah pake management
+				Semua version di define di parent pom
+			e. Importing Dependency
+				Didalam dependencyManagement -> dibawah version ada :
+				   <type> pom </type>	
+				   <scope> import </scope>
+				Syaratnya tipe harus sama dengan tipe packaging
+				Misal : spring-core didalamnya ada depend lombok
+					tanpa harus define lombok, otomatis lombok udah tahu
+					versinya berapa.
+
+- Command : a. mvn -v
+	    b. mvn package
+	    c. mvn exec:java -D"exec.mainClass"="henry.jonathan.Main2"
+	    d. mvn dependency:tree

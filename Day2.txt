@@ -1,0 +1,48 @@
+--------------
+  HTML & CSS
+--------------
+
+- Cara Kerja : Raw content (kosong) -> diisi html markup oleh kita -> translate ke browser
+- Metadata : tidak akan dilihatkan kepada user
+
+- Display : a. block : akan membuat tampilan menjadi blok per blok ( <div></div> )
+	    b. inline : jadi nantinya tampilan akan menyamping ( <span><.
+	    c. inline-block : sama seperti inline, tapi dapat dikur width sama heightnya sendiri
+	    d. none : tampilan akan disembunyikan
+- Flexbox : a. berupa container dan isi
+	    b. untuk mengisi data secara otomatis mulai dari kiri-> kanan atau atas->bawah (4 box)
+	    c. Justify content : untuk 1 baris, biasanya untuk homepage
+	    d. Align-items : untuk isi yang berada di tengah
+
+--------------
+  JAVASCRIPT
+--------------
+
+- Perbedaan antara ( == ) dan ( === ) : Kalau === dicek juga tipe datanya, misal : string & number
+- Closure : Fungsi didalamnya ada fungsi ( fungsi didalam = closure )
+
+---------------
+  AJAX & SPA
+---------------
+
+npm i -g http-server
+- res.json, fetch API, res.result, .then -> function
+- Ambil data dari request json : data.map( i => { return { name: i.name, birth_year: i.year } }
+- Generate cast HTML : window.(id nantinya).innerHTML
+- window.fetch(API).then -> .join('') untuk menghilangkan koma (,)
+
+- Semua elemen yang berkaitan dengan id bisa menggunakan window
+- es6 javascript
+
+
+
+-------------
+    TUGAS
+-------------
+
+- Feature Carousel slider : a. Navigation left right
+			    b. Banner link
+			    c. Paging
+			    d. Auto slide
+- Codepen.io/pen
+- https://codepen.io/daegalp/pen/aeLqmy

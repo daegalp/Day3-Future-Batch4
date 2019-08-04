@@ -6,12 +6,16 @@
 		  JDK -> JRE (Libs dan JVM), urutan paling dalam JVM -> JRE -> JDK
 - Type Data : a. Primitive & pasangan wrapper : (int, float, long, dll.)(Integer, Float, Long, dll) 
 		-> perbedaan mendasar kalau primitive pasti ada isinya, sedangkan wrapper 
-		   nilainya adalah NULL
+		   nilainya bisa NULL
 	      b. Wrapper : (String, Date, Timestamp, BigDecimal)
 	      c. Object Reference : - Reference by value : Human dae = new Human();
 				    - Reference by object : Human ega = dae;
 - Abstraction : a. Interface -> Apa yang akan dilakukan
-		b. Abstraksi -> APa saja yang sama diantara subclass nantinya
+		b. Abstraksi -> Apa saja yang sama diantara subclass nantinya
+
+----------------
+     SPRING
+----------------
 
 - @Autowired : controller -(injek)-> service (dibuat singleton) -> repository -> entity
 
@@ -26,10 +30,10 @@
 		c. Repository -> untuk SELECT * dll, komunikasi dengan database
 		d. Service -> untuk request, response. Menjalankan repo untuk mendapatkan model
 
-CTRL + SHIFT + A : shortcut ajaib
-IOC : inversion of controller
-https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
-SpringBoot thymeleaf
+- CTRL + SHIFT + A : shortcut ajaib
+- IOC : inversion of controller
+- https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+- SpringBoot thymeleaf
 
 
 Kesimpulan :
