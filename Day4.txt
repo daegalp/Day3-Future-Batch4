@@ -1,0 +1,61 @@
+-------------------
+     DATABASE
+-------------------
+
+- Sekumpulan data yang terorganisir sehingga bisa dicari lagi oleh komputer
+- Karakteristik ACID : 	a. Atomic : antara berhasil semua atau tidak berhasil semua ( 1 / 0 )
+			b. Consistent : datanya konsisten
+			c. Isolated : Jalannya berurutan (Serially)
+			d. Durable : respon yg diberikan benar" terjadi
+- CAP Theorem :	a. Consistency
+		b. Availlability
+		c. Partition Tolerance
+- SQL vs NoSQL : a. SQL : terstruktur dengan relasional data
+		 b. NoSQL : tidak terstruktur, bentuknya :document, wide column, graph db & key value
+
+- Join : a. Inner : irisan
+	 b. Left : kiri + irisan
+	 c. Right : kanan + irisan
+	 d. Full-outer : semua
+
+- Function, prodecure and trigger
+
+- Transaction Isolation : a. Dirty Read : membaca data dari db yg sedang diubah oleh transaksi lain
+					  dan belum dilakukan commit. Di db masih 20, yg muncul 21
+			  b. Non-repeatable reads : Ketika 2 transaksi jalan bareng dan transaksi 2 					      udah di commit, tetapi transaksi 1 masih baca yg lama
+			  c. Phantom reads : sama seperti point b, tetapi fokus ke Insert dan delete
+- Locking : a. Pessemistic Locking : update data yg akan menghandle adalah databasenya sendiri
+	    b. Optimistic Locking : version number, ketika update maka versi akan diupdate juga (naik)
+				    bertujuan untuk menghandle concurrrent update
+
+- Pessimistic Read : Papan tulis gk boleh diubah, muridnya harus baca terlebih dahulu
+- Pessimistic Write : Papan tulis di lock sama gurunya (ditulis dulu), muridnya gk boleh baca
+
+- Perbedaan dasar Pessimistic dan Optimistic : Pesimis yg mulai didahulukan, sedangkan optimistic yg
+					       commit duluan yg didahulukan.
+- Pisahkan antara OLAP dan OLTP (Analisis dan Transaksi)
+
+-----------------
+      QUERY
+-----------------
+
+1. Cascade : 	a. All : Semua akan ke cascade (Save, Update, Delete) -> Biasa dipake
+		b. Merge : kalau save data movie dan rating, maka akan save dua"nya
+		c. Persist
+		d. Remove : ketika hapus primary maka foreign akan dihapus otomatis
+		e. Detach : 
+		f. Refresh :
+2. Fetch : a. Lazy : biasanya untuk to Many
+	   b. Eager : biasanya untuk to One
+3. Transactional : Konsepnya all or nothing
+		   a. Propagation -> REQUIRES_NEW & REQUIRED
+		   b. Isolation -> default aja
+4. Locking : a. Pessimistic -> level dasarnya sudah di app
+	     b. Optimistic -> Bermain dengan version
+5. Redis : bermain dengan key value dibuat untuk caching -> karena aksesnya sangat cepat
+	 How (?) : 1. add dependency -> spring-boot-starter-data-redis
+		   2. Configuration di properties : spring.cache.type=redis, .host = localhost, 
+		      .port = 6379
+		   3. @Cacheable(value = "findByMovieId", key = "#movieId")
+		   4. Optional : CacheEvict ketika ada id yg berbeda yg lama dihapus (jadi tidak beban)
+6. Index : mempercepat proses pencarian

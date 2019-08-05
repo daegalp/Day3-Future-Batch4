@@ -1,0 +1,44 @@
+EXPLAIN SELECT M.movie_title, 
+CONCAT(D.director_first_name, ' ' ,D.director_last_name) 
+AS director_name, M.movie_year
+FROM movies M, ratings R, movies_directors MD, directors D
+WHERE D.director_id = MD.director_id 
+AND MD.movie_id = M.movie_id
+AND R.movie_id = M.movie_id
+AND R.reviewer_stars = 5
+AND M.movie_title LIKE 'The Deer Hunter'
+
+create function get_movie_of_the_year(INT) returns text
+AS $$ 
+SELECT M.movie_title
+FROM movies M, ratings R
+WHERE M.movie_id = R.movie_id 
+AND M.movie_year = $1
+GROUP BY M.movie_title
+ORDER BY AVG(R.reviewer_stars) DESC
+LIMIT 1
+$$ language SQL;
+
+
+
+
+Trigger
+
+create new table reviewers_history
+reviewer_history_id
+reviewer_id
+reviewer_previous_name
+
+Buat trigger function setiap terjadi update untup tiap baris data di table reviewers
+-> save history perubahan ratingnya di table reviewers_history
+
+create function name_function() returns trigger
+AS $BODY$
+begin
+logic jika ada
+query
+END
+$BODY$ language plpgsql;
+
+create trigger nama_trigger AFTER/BEFORE/UPDATE/INSERT/DELETE on table_name for each row excecute
+producer nama producer trigger yang sudah dibuat
